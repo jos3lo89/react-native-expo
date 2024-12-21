@@ -1,31 +1,22 @@
-import { View, Text, Button } from "react-native";
-import NameComponent from "../components/NameComponent";
-import AgeComponent from "../components/AgeComponent";
-import XHandleComponent from "../components/XHandleComponent";
-import FavSubjectComponent from "../components/FavSubjectComponent";
-import { useState } from "react";
+import { Pressable, Text, View } from "react-native";
+import ImageComponent from "../components/ImageComponent";
 
 const Index = () => {
-  const [counter, setCounter] = useState(0);
   return (
     <View>
-      <Button
-        title="click me"
-        color="teal"
-        onPress={() => setCounter(counter + 1)}
-      />
-
-      <Button
-        title="click me"
-        color="indigo"
-        onPress={() => alert("clicked")}
-      />
-      <NameComponent />
-      <AgeComponent />
-      <XHandleComponent />
-      <FavSubjectComponent />
-
-      <Text>{counter}</Text>
+      <Pressable onPress={() => console.log("pressed")}>
+        <Text style={{ color: "teal" }}>Press me</Text>
+      </Pressable>
+      <Pressable onPressIn={() => console.log("On press in")}>
+        <Text style={{ color: "coral" }}>Press me</Text>
+      </Pressable>
+      <Pressable onPressOut={() => console.log("On press out")}>
+        <Text style={{ color: "magenta" }}>Press me</Text>
+      </Pressable>
+      <Pressable onLongPress={() => console.log("On long press")}>
+        <Text style={{ color: "crimson" }}>Press me</Text>
+      </Pressable>
+      <ImageComponent />
     </View>
   );
 };
